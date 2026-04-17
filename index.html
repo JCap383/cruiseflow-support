@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CruiseFlow — App Support</title>
+  <style>
+    :root {
+      --blue: #0ea5e9;
+      --blue-dark: #0284c7;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-900: #0f172a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--gray-700);
+      background: var(--gray-50);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+      color: #fff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    section h2 {
+      font-size: 1.25rem;
+      color: var(--gray-900);
+      margin-bottom: 0.75rem;
+    }
+
+    section p, section li {
+      color: var(--gray-600);
+      margin-bottom: 0.5rem;
+    }
+
+    section ul {
+      padding-left: 1.25rem;
+    }
+
+    section li {
+      margin-bottom: 0.4rem;
+    }
+
+    a {
+      color: var(--blue-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.6rem 1.5rem;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .contact-link:hover {
+      background: var(--blue-dark);
+      text-decoration: none;
+    }
+
+    .faq dt {
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-top: 1rem;
+    }
+
+    .faq dt:first-child {
+      margin-top: 0;
+    }
+
+    .faq dd {
+      color: var(--gray-600);
+      margin-bottom: 0.75rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--gray-600);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--gray-600);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CruiseFlow</h1>
+  <p>Your family cruise companion</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>About CruiseFlow</h2>
+    <p>CruiseFlow helps families plan, experience, and relive their cruise vacations. Organize your schedule, capture memories with photos and journal entries, track your family's activities, and keep everything in one place — even offline at sea.</p>
+  </section>
+
+  <section>
+    <h2>Contact Support</h2>
+    <p>Having trouble or have a question? We're happy to help.</p>
+    <a class="contact-link" href="mailto:cruiseflow.app@gmail.com">Email Us</a>
+    <p style="margin-top: 0.75rem; font-size: 0.9rem;">We typically respond within 24 hours.</p>
+  </section>
+
+  <section>
+    <h2>Frequently Asked Questions</h2>
+    <dl class="faq">
+      <dt>Does CruiseFlow work offline?</dt>
+      <dd>Yes! All your data is stored on your device. You can view your schedule, add photos, and write journal entries without an internet connection — perfect for days at sea.</dd>
+
+      <dt>How do I back up my data?</dt>
+      <dd>Go to Settings and tap "Export Backup." This saves all your cruises, events, family members, and photos as a file you can restore later from the same screen.</dd>
+
+      <dt>Can I plan multiple cruises?</dt>
+      <dd>Absolutely. CruiseFlow supports multiple cruises. Switch between them from the home screen or manage them in Settings.</dd>
+
+      <dt>What is the Demo Cruise?</dt>
+      <dd>The demo cruise is a pre-populated sample cruise that lets you explore all of CruiseFlow's features before adding your own trip. You can delete it at any time from Settings.</dd>
+
+      <dt>How do I add family members?</dt>
+      <dd>Go to Settings and tap "Family Members." Add each person with a name, emoji, and color. You can then tag family members on events to see who's doing what.</dd>
+
+      <dt>What is Duck Hunt?</dt>
+      <dd>Hiding and finding rubber ducks is a beloved cruise tradition! The Duck Hunt feature lets you log every duck your family finds, including where you found it and the tag message left by the previous cruiser.</dd>
+
+      <dt>How do I delete my data?</dt>
+      <dd>You can delete individual cruises from Settings, or use "Reset All Data" to start fresh. All data is stored locally on your device and is permanently removed when deleted.</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Requirements</h2>
+    <ul>
+      <li>iOS 16.0 or later</li>
+      <li>iPhone or iPad</li>
+      <li>No account or internet connection required</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p><a href="privacy.html">Privacy Policy</a></p>
+  <p style="margin-top: 0.5rem;">&copy; 2025 CruiseFlow. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
