@@ -116,6 +116,53 @@
       margin-bottom: 0.75rem;
     }
 
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .callout {
+      background: var(--gray-100);
+      border-left: 3px solid var(--blue);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: var(--gray-900);
+      font-weight: 600;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1.5rem;
@@ -173,15 +220,62 @@
 
       <dt>How do I delete my data?</dt>
       <dd>You can delete individual cruises from Settings, or use "Reset All Data" to start fresh. All data is stored locally on your device and is permanently removed when deleted.</dd>
+
+      <dt>Can I share data between my iPhone and iPad?</dt>
+      <dd>Yes! CruiseFlow uses iCloud sync groups to keep multiple devices in sync. See the "iCloud Sync Setup" section below for step-by-step instructions.</dd>
+
+      <dt>Can my family share the same cruise?</dt>
+      <dd>Yes — anyone signed into the same iCloud account (such as Family Sharing members who share an Apple ID for the app) can join the same sync group and see all cruise data. Each device must have CruiseFlow installed and iCloud enabled.</dd>
     </dl>
+  </section>
+
+  <section>
+    <h2>iCloud Sync Setup</h2>
+    <p>CruiseFlow uses <strong>sync groups</strong> stored in your iCloud Drive to keep your data in sync across devices. This works just like Baby Tracker — create a group on one device, join it from your other devices, and changes sync automatically.</p>
+
+    <div class="callout">
+      <strong>Before you start:</strong> Make sure all devices are signed into the same iCloud account and have iCloud Drive enabled (Settings → [your name] → iCloud → iCloud Drive).
+    </div>
+
+    <h3 class="subhead">On your first device — create a sync group</h3>
+    <ol class="steps">
+      <li>Open CruiseFlow and go to <strong>Settings</strong>.</li>
+      <li>Scroll to the <strong>Synchronization</strong> section and tap <strong>Sync groups</strong>.</li>
+      <li>Under "Create new group," enter a name (for example, <em>Family Cruise</em>).</li>
+      <li>Tap <strong>Create &amp; Join</strong>. Your device is now syncing to iCloud.</li>
+    </ol>
+
+    <h3 class="subhead">On your other devices — join the group</h3>
+    <ol class="steps">
+      <li>Wait about 30 seconds after creating the group on the first device, so iCloud Drive can propagate the new group.</li>
+      <li>Open CruiseFlow on the second device and go to <strong>Settings → Synchronization → Sync groups</strong>.</li>
+      <li>If you don't see the group right away, tap <strong>Refresh groups</strong>.</li>
+      <li>Find your group in the "Available groups" list and tap <strong>Join</strong>.</li>
+      <li>The device will pull down all data from the group. Repeat on any additional devices.</li>
+    </ol>
+
+    <h3 class="subhead">Where is my data stored?</h3>
+    <p>Sync data lives in your private iCloud Drive container under <strong>CruiseFlow</strong>. You can verify usage in <strong>Settings → [your name] → iCloud → Manage Account Storage → CruiseFlow</strong>. Files are not visible in the Files app — they live in the app's private container, which is the recommended Apple pattern for app data.</p>
+
+    <h3 class="subhead">Leaving a sync group</h3>
+    <p>To stop syncing on a particular device, open the Sync Groups sheet and tap <strong>Leave group</strong>. Your local data stays on that device. Other devices in the group continue syncing with each other.</p>
+
+    <h3 class="subhead">Troubleshooting</h3>
+    <ul>
+      <li><strong>Group doesn't appear on my second device:</strong> Make sure both devices are signed into the same iCloud account, iCloud Drive is enabled, and you have an internet connection. Tap <strong>Refresh groups</strong> after a minute.</li>
+      <li><strong>Changes aren't syncing:</strong> CruiseFlow merges changes when the app is open. Pull down to refresh, or tap the sync row in Settings to force a sync.</li>
+      <li><strong>"iCloud is not available":</strong> Open the iOS Settings app, tap your name at the top, then iCloud → iCloud Drive, and make sure it's turned on. CruiseFlow must also be in the list of apps allowed to use iCloud Drive.</li>
+      <li><strong>Conflicting edits:</strong> CruiseFlow uses a "last writer wins" merge strategy. The most recent edit on any device is kept.</li>
+    </ul>
   </section>
 
   <section>
     <h2>Requirements</h2>
     <ul>
-      <li>iOS 16.0 or later</li>
+      <li>iOS 17.0 or later</li>
       <li>iPhone or iPad</li>
-      <li>No account or internet connection required</li>
+      <li>No account or internet connection required for core features</li>
+      <li>iCloud account with iCloud Drive enabled (only required for multi-device sync)</li>
     </ul>
   </section>
 
