@@ -25,6 +25,8 @@
       line-height: 1.6;
     }
 
+    html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+
     header {
       background: linear-gradient(135deg, var(--blue), var(--blue-dark));
       color: #fff;
@@ -44,7 +46,7 @@
     }
 
     main {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 2rem 1.5rem 4rem;
     }
@@ -55,6 +57,7 @@
       padding: 1.75rem;
       margin-bottom: 1.5rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      scroll-margin-top: 1rem;
     }
 
     section h2 {
@@ -68,22 +71,11 @@
       margin-bottom: 0.5rem;
     }
 
-    section ul {
-      padding-left: 1.25rem;
-    }
+    section ul { padding-left: 1.25rem; }
+    section li { margin-bottom: 0.4rem; }
 
-    section li {
-      margin-bottom: 0.4rem;
-    }
-
-    a {
-      color: var(--blue-dark);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--blue-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .contact-link {
       display: inline-block;
@@ -95,45 +87,27 @@
       font-weight: 600;
       transition: background 0.2s;
     }
+    .contact-link:hover { background: var(--blue-dark); text-decoration: none; }
 
-    .contact-link:hover {
-      background: var(--blue-dark);
-      text-decoration: none;
-    }
-
-    .faq dt {
-      font-weight: 600;
-      color: var(--gray-900);
-      margin-top: 1rem;
-    }
-
-    .faq dt:first-child {
-      margin-top: 0;
-    }
-
-    .faq dd {
-      color: var(--gray-600);
-      margin-bottom: 0.75rem;
-    }
+    .faq dt { font-weight: 600; color: var(--gray-900); margin-top: 1rem; }
+    .faq dt:first-child { margin-top: 0; }
+    .faq dd { color: var(--gray-600); margin-bottom: 0.75rem; }
 
     .steps {
       counter-reset: step;
       list-style: none;
       padding-left: 0;
     }
-
     .steps li {
       counter-increment: step;
       position: relative;
       padding-left: 2.5rem;
       margin-bottom: 0.85rem;
     }
-
     .steps li::before {
       content: counter(step);
       position: absolute;
-      left: 0;
-      top: 0;
+      left: 0; top: 0;
       width: 1.75rem;
       height: 1.75rem;
       background: var(--blue);
@@ -163,17 +137,51 @@
       margin-bottom: 0.5rem;
     }
 
+    .toc { padding: 1.5rem 1.75rem; }
+    .toc h2 { margin-bottom: 0.5rem; }
+    .toc ol {
+      column-count: 2;
+      column-gap: 1.5rem;
+      padding-left: 1.25rem;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 540px) { .toc ol { column-count: 1; } }
+    .toc li { padding: 0.15rem 0; break-inside: avoid; margin-bottom: 0.1rem; }
+
+    .example {
+      background: var(--gray-100);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.95rem;
+    }
+    .example .label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blue-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .path {
+      display: inline-block;
+      background: var(--gray-100);
+      padding: 0.05em 0.4em;
+      border-radius: 4px;
+      font-size: 0.92em;
+      color: var(--gray-900);
+      font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+    }
+
     footer {
       text-align: center;
       padding: 2rem 1.5rem;
       color: var(--gray-600);
       font-size: 0.85rem;
     }
-
-    footer a {
-      color: var(--gray-600);
-      text-decoration: underline;
-    }
+    footer a { color: var(--gray-600); text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -187,7 +195,7 @@
 
   <section>
     <h2>About CruiseFlow</h2>
-    <p>CruiseFlow helps families plan, experience, and relive their cruise vacations. Organize your schedule, capture memories with photos and journal entries, track your family's activities, and keep everything in one place — even offline at sea.</p>
+    <p>CruiseFlow helps families plan, experience, and relive their cruise vacations. Import a booking email, build a day-by-day schedule, keep travel documents in one secure spot, capture every memory with photos, and stay in sync with your family — all offline-first so cruise Wi-Fi can't slow you down.</p>
   </section>
 
   <section>
@@ -197,39 +205,453 @@
     <p style="margin-top: 0.75rem; font-size: 0.9rem;">We typically respond within 24 hours.</p>
   </section>
 
-  <section>
-    <h2>Frequently Asked Questions</h2>
-    <dl class="faq">
-      <dt>Does CruiseFlow work offline?</dt>
-      <dd>Yes! All your data is stored on your device. You can view your schedule, add photos, and write journal entries without an internet connection — perfect for days at sea.</dd>
-
-      <dt>How do I back up my data?</dt>
-      <dd>Go to Settings and tap "Export Backup." This saves all your cruises, events, family members, and photos as a file you can restore later from the same screen.</dd>
-
-      <dt>Can I plan multiple cruises?</dt>
-      <dd>Absolutely. CruiseFlow supports multiple cruises. Switch between them from the home screen or manage them in Settings.</dd>
-
-      <dt>What is the Demo Cruise?</dt>
-      <dd>The demo cruise is a pre-populated sample cruise that lets you explore all of CruiseFlow's features before adding your own trip. You can delete it at any time from Settings.</dd>
-
-      <dt>How do I add family members?</dt>
-      <dd>Go to Settings and tap "Family Members." Add each person with a name, emoji, and color. You can then tag family members on events to see who's doing what.</dd>
-
-      <dt>What is Duck Hunt?</dt>
-      <dd>Hiding and finding rubber ducks is a beloved cruise tradition! The Duck Hunt feature lets you log every duck your family finds, including where you found it and the tag message left by the previous cruiser.</dd>
-
-      <dt>How do I delete my data?</dt>
-      <dd>You can delete individual cruises from Settings, or use "Reset All Data" to start fresh. All data is stored locally on your device and is permanently removed when deleted.</dd>
-
-      <dt>Can I share data between my iPhone and iPad?</dt>
-      <dd>Yes! CruiseFlow uses iCloud sync groups to keep multiple devices in sync. See the "iCloud Sync Setup" section below for step-by-step instructions.</dd>
-
-      <dt>Can my family share the same cruise?</dt>
-      <dd>Yes — anyone signed into the same iCloud account (such as Family Sharing members who share an Apple ID for the app) can join the same sync group and see all cruise data. Each device must have CruiseFlow installed and iCloud enabled.</dd>
-    </dl>
+  <section class="toc" id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#getting-started">Getting Started</a></li>
+      <li><a href="#email-import">Importing from a Booking Email</a></li>
+      <li><a href="#home-screen">The Home Screen</a></li>
+      <li><a href="#schedule">Daily Schedule</a></li>
+      <li><a href="#events">Adding &amp; Editing Events</a></li>
+      <li><a href="#categories">Event Categories</a></li>
+      <li><a href="#venue-picker">Ship-Aware Venue Picker</a></li>
+      <li><a href="#reminders">Smart Reminders</a></li>
+      <li><a href="#day-names">Day Names &amp; Port Labels</a></li>
+      <li><a href="#travel-days">Pre &amp; Post-Cruise Travel Days</a></li>
+      <li><a href="#checklist">Pre-Cruise Checklist</a></li>
+      <li><a href="#documents">Documents Vault</a></li>
+      <li><a href="#notes">Trip Notes</a></li>
+      <li><a href="#family">Family Members</a></li>
+      <li><a href="#by-person">By-Person Schedule View</a></li>
+      <li><a href="#memories">Memories &amp; Photos</a></li>
+      <li><a href="#daily-bulletin">Daily Bulletin Photos</a></li>
+      <li><a href="#recap">Cruise Recap (Stories)</a></li>
+      <li><a href="#duck-hunt">Duck Hunt</a></li>
+      <li><a href="#multi-cruise">Multiple Cruises</a></li>
+      <li><a href="#sync-groups">iCloud Sync Setup</a></li>
+      <li><a href="#airdrop">AirDrop Sync Files</a></li>
+      <li><a href="#backup-restore">Backup &amp; Restore</a></li>
+      <li><a href="#themes">Themes &amp; Appearance</a></li>
+      <li><a href="#concierge">AI Concierge (Optional)</a></li>
+      <li><a href="#offline">Offline Use</a></li>
+      <li><a href="#privacy-data">Privacy &amp; Data</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+      <li><a href="#faq">Frequently Asked Questions</a></li>
+      <li><a href="#requirements">Requirements</a></li>
+    </ol>
   </section>
 
-  <section>
+  <section id="getting-started">
+    <h2>Getting Started</h2>
+    <p>The first time you open CruiseFlow you'll see a welcome screen with three options:</p>
+    <ul>
+      <li><strong>Plan My Cruise</strong> — set up a brand-new cruise from scratch</li>
+      <li><strong>Try a Demo First</strong> — explore the app pre-filled with a sample Caribbean cruise</li>
+      <li><strong>Restore backup</strong> or <strong>Receive sync</strong> (small links at the bottom) — import existing data from a backup file or a sync file someone shared with you</li>
+    </ul>
+    <p>Tap <strong>Plan My Cruise</strong> and you'll move through three steps: a quick welcome, your trip details (cruise name, ship, start and end dates), and finally adding the family members travelling with you.</p>
+    <div class="callout">
+      <strong>Tip:</strong> If you have a booking confirmation email handy, look for the blue "Have a booking email?" card on the cruise-details step. Tapping it skips most of the manual entry — see the next section.
+    </div>
+  </section>
+
+  <section id="email-import">
+    <h2>Importing from a Booking Email</h2>
+    <p>CruiseFlow can read your cruise-line confirmation email and auto-fill almost everything for you.</p>
+
+    <h3 class="subhead">Where to find it</h3>
+    <ul>
+      <li>The new-cruise screen has a blue <strong>"Have a booking email?"</strong> card at the top</li>
+      <li><span class="path">Settings → Import from email</span></li>
+    </ul>
+
+    <h3 class="subhead">How to use it</h3>
+    <ol class="steps">
+      <li>Open your booking confirmation email in Mail (or anywhere you can copy text).</li>
+      <li>Select all of the email body and copy it.</li>
+      <li>Switch to CruiseFlow and tap <strong>Paste from clipboard</strong>, or paste the text into the textarea manually and tap <strong>Extract details</strong>.</li>
+      <li>Review the extracted details. Anything we couldn't find shows a yellow warning icon and you can fill it in by hand.</li>
+      <li>Tap <strong>Add to my trips</strong> to save.</li>
+    </ol>
+
+    <h3 class="subhead">What it extracts</h3>
+    <ul>
+      <li>Cruise name, ship, start and end dates</li>
+      <li>Stateroom number, dining time, confirmation number — saved as <a href="#notes">trip notes</a></li>
+      <li>The full day-by-day itinerary, with port names already filled in (Cozumel, Sea Day, Castaway Cay, etc.) — these become your <a href="#day-names">day labels</a></li>
+    </ul>
+
+    <h3 class="subhead">Supported sources</h3>
+    <ul>
+      <li>Norwegian Cruise Line</li>
+      <li>Royal Caribbean</li>
+      <li>Carnival</li>
+      <li>Disney Cruise Line</li>
+      <li>Celebrity Cruises</li>
+      <li>Travel-agency confirmations like Costco Travel that wrap any of the above</li>
+    </ul>
+
+    <div class="example">
+      <span class="label">Example</span>
+      Pasting a Norwegian booking confirmation for a 7-night Caribbean sailing on Norwegian Prima will auto-fill: cruise name "7 Night Cruise from Port Canaveral," ship "Norwegian Prima," dates Apr 5 → Apr 12, 2026, stateroom 9790, confirmation 62260370, and 8 days of itinerary — Port Canaveral, Great Stirrup Cay, Sea Day, Montego Bay, Cayman/George Town, Cozumel, Sea Day, Port Canaveral.
+    </div>
+
+    <div class="callout">
+      <strong>Privacy:</strong> Email text is parsed entirely on your device. Nothing is uploaded to any server.
+    </div>
+
+    <h3 class="subhead">If your email isn't recognized</h3>
+    <p>You'll see a yellow "Couldn't recognize this email" message and a button to set up the cruise manually. Send the email subject line and which fields were missed to <a href="mailto:cruiseflow.app@gmail.com">support</a> and we'll add a parser for it.</p>
+  </section>
+
+  <section id="home-screen">
+    <h2>The Home Screen</h2>
+    <p>Home is the central hub. What you see depends on whether you have an active cruise:</p>
+    <ul>
+      <li><strong>Currently sailing</strong> — the active cruise card appears at the top with today's day number, event count, and a quick link to Schedule</li>
+      <li><strong>Trip coming up</strong> — a countdown card ("30 days to go") plus a pre-cruise checklist nudge with your next two overdue or upcoming items</li>
+      <li><strong>Between trips</strong> — past cruises in a horizontal carousel, an "On This Day" memory from a previous trip, aggregate stats, and a "Play Your Story" button to relive your most recent voyage</li>
+    </ul>
+    <p>The bottom navigation bar takes you to <strong>Home</strong>, <strong>Schedule</strong>, <strong>Memories</strong>, <strong>Ducks</strong>, and <strong>More</strong>. The More tab houses the pre-cruise checklist, documents, notes, and full Settings.</p>
+  </section>
+
+  <section id="schedule">
+    <h2>Daily Schedule</h2>
+    <p>The Schedule tab is where most of your day-to-day planning happens.</p>
+
+    <h3 class="subhead">Navigating between days</h3>
+    <ul>
+      <li>Tap the chevron arrows on either side of the date label to step one day at a time</li>
+      <li>Tap the date itself to open the iOS date picker and jump to any day</li>
+      <li>Swipe left or right anywhere on the page to navigate days</li>
+    </ul>
+
+    <h3 class="subhead">Two viewing modes</h3>
+    <ul>
+      <li><strong>Timeline</strong> (default) — every event for the day in chronological order</li>
+      <li><strong>By Person</strong> — events grouped by family member, with a card for each person showing their day at a glance. Useful when the family splits up</li>
+    </ul>
+
+    <h3 class="subhead">Search and filter</h3>
+    <p>Tap the magnifying-glass icon to search across all events on the current day. You can also filter by category (dining, entertainment, etc.) or by family member.</p>
+
+    <h3 class="subhead">Live status</h3>
+    <p>Events that are happening right now show a pulsing "Happening now" badge. Past events are dimmed; upcoming events are fully bright.</p>
+  </section>
+
+  <section id="events">
+    <h2>Adding &amp; Editing Events</h2>
+
+    <h3 class="subhead">Add a new event</h3>
+    <ol class="steps">
+      <li>From Schedule, tap the floating <strong>+</strong> button in the bottom right.</li>
+      <li>Fill in the four tabs: <strong>Basics</strong> (title, category, venue), <strong>Time</strong> (date, start, end, reminder), <strong>Details</strong> (notes, deck, confirmation #), and <strong>People</strong> (which family members are going).</li>
+      <li>Tap <strong>Add Event</strong> to save.</li>
+    </ol>
+
+    <h3 class="subhead">Edit or delete an event</h3>
+    <ul>
+      <li>Tap an event card to open it. From there: <strong>Edit</strong> (pencil), <strong>Mark complete</strong>, <strong>Add photo</strong>, or <strong>Delete</strong> (trash)</li>
+      <li>Long-press an event card for quick actions like duplicate or share</li>
+    </ul>
+
+    <div class="example">
+      <span class="label">Example</span>
+      To add a 7:30 PM specialty dinner: tap +, type "Le Bistro," pick category Dining, start typing the venue and pick "Le Bistro · Deck 6" from the suggestions, switch to Time, set 7:30 PM – 9:00 PM and a 30-minute reminder, switch to People and tap each adult travelling with you, then Add Event.
+    </div>
+  </section>
+
+  <section id="categories">
+    <h2>Event Categories</h2>
+    <p>Each event has one category that drives its color, icon, and default times.</p>
+
+    <h3 class="subhead">On-ship activities</h3>
+    <ul>
+      <li><strong>Dining</strong> — restaurants, breakfast, brunch, dinner reservations</li>
+      <li><strong>Entertainment</strong> — production shows, comedy, music, headliners</li>
+      <li><strong>Excursion</strong> — shore excursions, port tours</li>
+      <li><strong>Kids Club</strong> — youth programmes, drop-off sessions</li>
+      <li><strong>Reservation</strong> — spa, salon, specialty bars</li>
+      <li><strong>Personal</strong> — gym, pool time, anything else just for you</li>
+      <li><strong>Reminder</strong> — a non-time-anchored to-do for the day</li>
+    </ul>
+
+    <h3 class="subhead">Travel logistics (for pre/post-cruise days)</h3>
+    <ul>
+      <li><strong>Flight</strong> — outbound and return flights</li>
+      <li><strong>Hotel</strong> — pre- or post-cruise hotel nights</li>
+      <li><strong>Transfer</strong> — airport-to-port shuttles, taxis</li>
+      <li><strong>Car Rental</strong> — pickup and drop-off</li>
+      <li><strong>Parking</strong> — port parking reservations</li>
+    </ul>
+  </section>
+
+  <section id="venue-picker">
+    <h2>Ship-Aware Venue Picker</h2>
+    <p>When you tap the <strong>Venue</strong> field on an event, CruiseFlow shows venues for your specific ship organized by category and deck.</p>
+    <ul>
+      <li>Start typing to filter — matches name, category, or deck number</li>
+      <li>Tap a suggestion to select it; the deck number fills in automatically</li>
+      <li>Or tap <strong>Custom venue</strong> at the bottom of the list to type any name CruiseFlow doesn't know about</li>
+    </ul>
+    <p>Thousands of venues are pre-loaded across Norwegian, Royal Caribbean, Carnival, Disney, Celebrity, Princess, MSC, Virgin Voyages, and more. If your ship isn't in the catalog, you can still log every event by typing custom venue names — the rest of the app works the same.</p>
+  </section>
+
+  <section id="reminders">
+    <h2>Smart Reminders</h2>
+    <p>Each event can have a notification that fires before it starts. On the Time tab, choose <strong>None</strong>, <strong>15 minutes</strong>, <strong>30 minutes</strong>, <strong>1 hour</strong>, or <strong>1 day</strong> before.</p>
+    <ul>
+      <li>On iPhone, you'll be asked for notification permission the first time you set a reminder</li>
+      <li>Reminders fire from the device — they work without internet (cruise Wi-Fi friendly)</li>
+      <li>If you change an event's time after setting a reminder, the notification re-schedules automatically</li>
+    </ul>
+  </section>
+
+  <section id="day-names">
+    <h2>Day Names &amp; Port Labels</h2>
+    <p>Underneath the date on the Schedule view, you'll see a small label like <em>Day 3 · Cozumel, Mexico</em> or <em>Day 5 · Sea Day</em>.</p>
+
+    <h3 class="subhead">Where they come from</h3>
+    <ul>
+      <li>Auto-filled when you import a cruise from a booking email</li>
+      <li>Or added manually — tap the label to open the rename sheet</li>
+    </ul>
+
+    <h3 class="subhead">Editing one</h3>
+    <ol class="steps">
+      <li>Tap the day-name label under the date.</li>
+      <li>Type a new label (e.g. "Cozumel (rerouted to Costa Maya)").</li>
+      <li>Tap <strong>Save</strong>.</li>
+    </ol>
+
+    <p>Empty days inside a cruise show a faint "+ Add day name" affordance in the same spot — tap it to add a label from scratch. Saving with an empty value clears that day's name.</p>
+
+    <div class="callout">
+      <strong>Why this is useful:</strong> ports change. Hurricanes reroute ships, tenders can't dock, ports get swapped. Edit the day name to match what actually happened so your record stays accurate.
+    </div>
+  </section>
+
+  <section id="travel-days">
+    <h2>Pre &amp; Post-Cruise Travel Days</h2>
+    <p>The schedule isn't limited to your sailing dates — you can navigate up to 14 days before the start date and 14 days after the end date to plan flights, hotels, transfers, and return travel.</p>
+    <ul>
+      <li>Day -1 (the day before sailing) shows a "Travel day · Get to the port today, board the ship soon" banner</li>
+      <li>Day +1 (the day after disembarkation) shows a "Return travel · Travel home from the port" banner</li>
+      <li>Use the travel-logistics categories — Flight, Hotel, Transfer, Car Rental, Parking — for these events</li>
+    </ul>
+  </section>
+
+  <section id="checklist">
+    <h2>Pre-Cruise Checklist</h2>
+    <p>The day you create a cruise, CruiseFlow seeds a 15+ item checklist with sensible due dates ("90 days before," "3 days before"). Find it at <span class="path">More → Pre-cruise Checklist</span>.</p>
+
+    <h3 class="subhead">Buckets</h3>
+    <ul>
+      <li><strong>Overdue</strong> — past their due date and not yet checked off (highlighted in red)</li>
+      <li><strong>This week</strong> — due in the next 7 days</li>
+      <li><strong>Next 30 days</strong> — due within the month</li>
+      <li><strong>Completed</strong> — items you've checked off (collapsed by default)</li>
+    </ul>
+
+    <h3 class="subhead">Default items</h3>
+    <p>Includes things like: confirm passport validity, buy travel insurance, reserve specialty dining, book shore excursions, complete online check-in, reserve evening shows, book parking, refill prescriptions, free up phone storage, pack reef-safe sunscreen, notify your bank of travel, get small bills for tips, print boarding passes, and pack carry-on essentials. The list is tailored to your cruise dates and ship.</p>
+
+    <h3 class="subhead">Adding your own items</h3>
+    <ol class="steps">
+      <li>Scroll to the bottom and tap <strong>Add custom item</strong>.</li>
+      <li>Enter a title, optional description, and how many days before sailing it's due.</li>
+      <li>Tap <strong>Add item</strong>.</li>
+    </ol>
+
+    <h3 class="subhead">Home-screen nudge</h3>
+    <p>When a cruise is upcoming (not currently sailing), the Home screen shows a checklist card right under the countdown. It surfaces overdue counts and the next two items so they don't slip through the cracks.</p>
+  </section>
+
+  <section id="documents">
+    <h2>Documents Vault</h2>
+    <p>A private, encrypted spot for the travel docs you'll actually need at the pier. Find it at <span class="path">More → Documents</span>.</p>
+
+    <h3 class="subhead">What to keep here</h3>
+    <ul>
+      <li>Passports</li>
+      <li>Boarding passes</li>
+      <li>Hotel and flight confirmations</li>
+      <li>Vaccine cards / health records</li>
+      <li>Travel insurance policies</li>
+      <li>Excursion vouchers</li>
+    </ul>
+
+    <h3 class="subhead">Uploading</h3>
+    <ol class="steps">
+      <li>Tap <strong>Upload a document</strong>.</li>
+      <li>Pick an image or PDF from your photo library or Files app (max 25 MB).</li>
+      <li>Confirm the title, choose a type (Passport, Boarding Pass, etc.), and optionally tag it to a family member.</li>
+      <li>For passports and vaccine cards, you can add an expiration date — within 90 days of expiry, a yellow "Expiring" badge appears on the row.</li>
+    </ol>
+
+    <h3 class="subhead">Auto-grouping</h3>
+    <ul>
+      <li><strong>Required for boarding</strong> — passports, boarding passes (pinned at the top with a red label)</li>
+      <li><strong>Bookings</strong> — flights, hotels, excursions, insurance</li>
+      <li><strong>Health</strong> — vaccine records, medical documents</li>
+      <li><strong>Other</strong> — anything else</li>
+    </ul>
+
+    <h3 class="subhead">Privacy</h3>
+    <p>Files are stored encrypted on your device and synced privately through your iCloud (if you're signed in). Other apps cannot see them, and they're inaccessible while your device is locked.</p>
+  </section>
+
+  <section id="notes">
+    <h2>Trip Notes</h2>
+    <p>A free-form notes field per cruise. Find it at <span class="path">More → Notes</span> or <span class="path">Settings → Trip details → Notes</span>.</p>
+
+    <h3 class="subhead">What goes here</h3>
+    <ul>
+      <li>Stateroom number</li>
+      <li>Dining time</li>
+      <li>Confirmation numbers</li>
+      <li>Allergies, dietary restrictions, special requests</li>
+      <li>Packing reminders</li>
+      <li>Anything you want to remember for this trip</li>
+    </ul>
+
+    <h3 class="subhead">Auto-population</h3>
+    <p>If you imported your cruise from a booking email, the stateroom, dining time, and confirmation number are filled in automatically.</p>
+
+    <h3 class="subhead">Saving</h3>
+    <p>Notes auto-save when you tap away from the textarea. There's also a <strong>Save</strong> button you can hit explicitly. The header reads "saving…" while a save is in flight and "unsaved" if you have changes that haven't landed yet.</p>
+  </section>
+
+  <section id="family">
+    <h2>Family Members</h2>
+    <p>Family members are global — once you add someone, they're available to assign to events on every cruise. Manage the list at <span class="path">Settings → Family Members</span>.</p>
+
+    <h3 class="subhead">Adding</h3>
+    <ol class="steps">
+      <li>Tap <strong>+ Add member</strong>.</li>
+      <li>Type a name, pick an emoji avatar, and toggle <strong>Child</strong> on or off.</li>
+      <li>Tap <strong>Add</strong>.</li>
+    </ol>
+
+    <h3 class="subhead">Editing</h3>
+    <p>Tap any existing member to rename them or change their emoji. Tap the trash icon to remove someone (their old event tags stay, just without the avatar).</p>
+
+    <h3 class="subhead">Why the Child toggle matters</h3>
+    <ul>
+      <li>The default checklist gains "kids" items (kid passports, formula, favourite stuffed animal) when at least one child is on the trip</li>
+      <li>Reservation and dining suggestions take ages into account where relevant</li>
+    </ul>
+  </section>
+
+  <section id="by-person">
+    <h2>By-Person Schedule View</h2>
+    <p>On the Schedule tab, the toggle next to "Timeline" lets you switch to <strong>By Person</strong>. Each family member gets a card showing:</p>
+    <ul>
+      <li>What they're doing right now</li>
+      <li>What's coming up next</li>
+      <li>How many events they have today</li>
+      <li>Any conflicts (two events overlapping)</li>
+    </ul>
+    <p>Useful when the family splits up — at-a-glance "where is everyone right now?"</p>
+  </section>
+
+  <section id="memories">
+    <h2>Memories &amp; Photos</h2>
+    <p>The Memories tab is your travel journal across every cruise.</p>
+
+    <h3 class="subhead">Adding a photo to an event</h3>
+    <ol class="steps">
+      <li>Tap an event card to open its detail view.</li>
+      <li>Tap the camera icon.</li>
+      <li>Take a photo or pick from your library — multiple per event are fine.</li>
+    </ol>
+
+    <h3 class="subhead">Quick-capture from the schedule</h3>
+    <p>For events happening right now, a "Quick photo capture" button appears at the bottom of the day's timeline. One tap, one photo, attached to the current event.</p>
+
+    <h3 class="subhead">Browsing memories</h3>
+    <ul>
+      <li>Filter by category, date range, family member, or cruise</li>
+      <li>Switch between gallery, list, and map views</li>
+      <li>Tap a photo to open the full-screen lightbox with pinch-to-zoom, pan, and double-tap to fit</li>
+      <li>Use <strong>On This Day</strong> on the home screen to revisit a photo from a previous cruise on the matching calendar day</li>
+    </ul>
+
+    <h3 class="subhead">Cover photos</h3>
+    <p>Inside the lightbox, tap <strong>Set as cover</strong> to make a photo represent that day. The cover shows up on the daily date picker, the cruise carousel, and exported recaps.</p>
+  </section>
+
+  <section id="daily-bulletin">
+    <h2>Daily Bulletin Photos</h2>
+    <p>Most cruise lines slip a printed schedule under your stateroom door each evening — Freestyle Daily, Cruise Compass, FunTimes, Patter, etc. CruiseFlow has a dedicated spot for those.</p>
+    <ol class="steps">
+      <li>On the Schedule tab, look for the <strong>Daily Bulletin</strong> card (just below the date and view-mode toggle).</li>
+      <li>Tap to snap a photo of the front. If there's a back side too, you'll see a "+" to add it.</li>
+      <li>Tap either side to view it full-screen with pinch-to-zoom.</li>
+    </ol>
+    <p>The photo is linked to that specific date, so you can always go back to "what was on the schedule that morning?"</p>
+  </section>
+
+  <section id="recap">
+    <h2>Cruise Recap (Stories)</h2>
+    <p>At the end of a sailing — once you have at least three events with photos — the home screen shows a colorful <strong>Play Your Story</strong> button.</p>
+
+    <h3 class="subhead">How it works</h3>
+    <ul>
+      <li>Auto-builds a full-screen photo story from your events, day by day</li>
+      <li>Each card shows the photo, event title, time, and venue</li>
+      <li>Tap to advance, or let it auto-play (about 5 seconds per card, with a progress bar at the top)</li>
+      <li>Swipe left or right to jump cards manually</li>
+    </ul>
+
+    <h3 class="subhead">Sharing</h3>
+    <p>From within the recap, tap the share icon to send the story as an image or video to Photos, Messages, or any social app.</p>
+  </section>
+
+  <section id="duck-hunt">
+    <h2>Duck Hunt</h2>
+    <p>The cruise rubber-duck tradition, built right into the app. Find it at the <strong>Ducks</strong> tab.</p>
+
+    <h3 class="subhead">Logging a find</h3>
+    <ol class="steps">
+      <li>Tap <strong>+ Log a duck</strong>.</li>
+      <li>Snap a photo of the duck.</li>
+      <li>Add the location (e.g. "Deck 12 pool area").</li>
+      <li>Type the tag message left by the previous cruiser if there is one.</li>
+      <li>Note who hid it (if you can tell from the tag — e.g. "Amy from Dallas, TX").</li>
+      <li>Tap <strong>Save</strong>.</li>
+    </ol>
+
+    <h3 class="subhead">Tracking</h3>
+    <ul>
+      <li>Your ducks appear in a grid on the Ducks tab, newest first</li>
+      <li>Tap a duck to see its full detail with map of where it was found</li>
+      <li>The leaderboard shows family-member finds across all your cruises</li>
+      <li>Badges unlock at milestones (first find, 5 ducks, 10 ducks, etc.)</li>
+    </ul>
+  </section>
+
+  <section id="multi-cruise">
+    <h2>Multiple Cruises</h2>
+    <p>CruiseFlow handles back-to-back voyages and trips spread across years. Each cruise keeps its own events, photos, ducks, notes, checklist, and documents.</p>
+
+    <h3 class="subhead">Adding another cruise</h3>
+    <ul>
+      <li><span class="path">Settings → New cruise</span></li>
+      <li>Or import another booking email — see <a href="#email-import">Importing from a Booking Email</a></li>
+    </ul>
+
+    <h3 class="subhead">Switching between cruises</h3>
+    <ul>
+      <li>Home tab — past and future cruises in the carousel; tap any to make it active</li>
+      <li><span class="path">Settings → Switch cruise</span> — full list, sorted by date</li>
+    </ul>
+
+    <h3 class="subhead">Browsing past trips</h3>
+    <p>When you tap an old cruise from the home carousel, a "You're browsing a past cruise · Back to Home" banner appears at the top so you don't get lost.</p>
+  </section>
+
+  <section id="sync-groups">
     <h2>iCloud Sync Setup</h2>
     <p>CruiseFlow uses <strong>sync groups</strong> stored in your iCloud Drive to keep your data in sync across devices. This works just like Baby Tracker — create a group on one device, join it from your other devices, and changes sync automatically.</p>
 
@@ -254,13 +676,30 @@
       <li>The device will pull down all data from the group. Repeat on any additional devices.</li>
     </ol>
 
+    <h3 class="subhead">What syncs</h3>
+    <ul>
+      <li>Cruises and trip details</li>
+      <li>Events with their photos</li>
+      <li>Family members</li>
+      <li>Ducks</li>
+      <li>Pre-cruise checklist items</li>
+      <li>Documents (encrypted)</li>
+      <li>Trip notes and day labels</li>
+    </ul>
+
+    <h3 class="subhead">What doesn't</h3>
+    <ul>
+      <li>App settings (theme, AI key) — those stay local per device</li>
+      <li>Daily bulletin photos — local only by design (they're large and ephemeral)</li>
+    </ul>
+
     <h3 class="subhead">Where is my data stored?</h3>
     <p>Sync data lives in your private iCloud Drive container under <strong>CruiseFlow</strong>. You can verify usage in <strong>Settings → [your name] → iCloud → Manage Account Storage → CruiseFlow</strong>. Files are not visible in the Files app — they live in the app's private container, which is the recommended Apple pattern for app data.</p>
 
     <h3 class="subhead">Leaving a sync group</h3>
     <p>To stop syncing on a particular device, open the Sync Groups sheet and tap <strong>Leave group</strong>. Your local data stays on that device. Other devices in the group continue syncing with each other.</p>
 
-    <h3 class="subhead">Troubleshooting</h3>
+    <h3 class="subhead">Sync troubleshooting</h3>
     <ul>
       <li><strong>Group doesn't appear on my second device:</strong> Make sure both devices are signed into the same iCloud account, iCloud Drive is enabled, and you have an internet connection. Tap <strong>Refresh groups</strong> after a minute.</li>
       <li><strong>Changes aren't syncing:</strong> CruiseFlow merges changes when the app is open. Pull down to refresh, or tap the sync row in Settings to force a sync.</li>
@@ -269,7 +708,188 @@
     </ul>
   </section>
 
-  <section>
+  <section id="airdrop">
+    <h2>AirDrop Sync Files</h2>
+    <p>If you're cruising with someone on a different Apple ID — say, a friend or extended family member — sync groups won't reach them. AirDrop sync files do.</p>
+
+    <h3 class="subhead">Sending</h3>
+    <ol class="steps">
+      <li>From the home screen, long-press a cruise card.</li>
+      <li>Tap <strong>Share cruise</strong>.</li>
+      <li>Pick the recipient via AirDrop, Messages, or Mail.</li>
+    </ol>
+
+    <h3 class="subhead">Receiving</h3>
+    <p>The other person taps the <code>.cruiseflow</code> file. CruiseFlow opens, shows a <strong>Merge preview</strong> screen explaining what will be added, and they tap <strong>Merge</strong> to land it.</p>
+
+    <p>Sync files are one-shot snapshots — they don't keep updating. Send a fresh one if plans change.</p>
+  </section>
+
+  <section id="backup-restore">
+    <h2>Backup &amp; Restore</h2>
+    <p>You own your data. <span class="path">Settings → Backup &amp; Restore</span> lets you export everything as a single JSON file and put it back later.</p>
+
+    <h3 class="subhead">Export</h3>
+    <ul>
+      <li>Tap <strong>Export Backup</strong></li>
+      <li>Save the file to Files, iCloud Drive, or share it via any app</li>
+      <li>The export includes every cruise, event, photo, member, duck, document, and setting</li>
+    </ul>
+
+    <h3 class="subhead">Restore</h3>
+    <ul>
+      <li>Either tap <strong>Restore backup</strong> from the welcome screen, or in <span class="path">Settings → Restore from file</span></li>
+      <li>Pick the JSON file from your device</li>
+      <li>Confirm the preview (number of cruises, photos, ducks)</li>
+      <li>Tap <strong>Restore</strong> — existing data is replaced wholesale</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Heads up:</strong> Restoring overwrites everything currently on the device. If you want to keep both, use AirDrop sync files instead, which merge.
+    </div>
+  </section>
+
+  <section id="themes">
+    <h2>Themes &amp; Appearance</h2>
+    <p><span class="path">Settings → Theme</span> lets you pick:</p>
+    <ul>
+      <li><strong>System</strong> — follows your iOS Light/Dark Mode setting</li>
+      <li><strong>Light</strong> — always light</li>
+      <li><strong>Dark</strong> — always dark</li>
+    </ul>
+    <p>The app respects iOS accessibility settings — Reduce Motion disables decorative animations, Reduce Transparency removes the blurry sticky headers, and dynamic-type scales most labels.</p>
+  </section>
+
+  <section id="concierge">
+    <h2>AI Concierge (Optional)</h2>
+    <p>CruiseFlow has an optional chat assistant that can answer questions about your itinerary, suggest activities for sea days, or help you write a packing list. It uses Google Gemini and requires your own free API key.</p>
+
+    <h3 class="subhead">Setup</h3>
+    <ol class="steps">
+      <li>Go to <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> and create an API key (free tier is plenty for personal use).</li>
+      <li>In CruiseFlow: <span class="path">Settings → Gemini API key → Save</span>.</li>
+      <li>The Concierge chat tab appears in the More menu.</li>
+    </ol>
+
+    <h3 class="subhead">Privacy</h3>
+    <p>The key is stored only on your device. When you ask the concierge a question, your prompt and a small slice of relevant cruise context are sent directly to Google's Gemini API — not through CruiseFlow's servers.</p>
+    <p>If you don't set up a key, the AI Concierge is hidden and you'll never see anything related to it.</p>
+  </section>
+
+  <section id="offline">
+    <h2>Offline Use</h2>
+    <p>CruiseFlow is built for cruise Wi-Fi reality. Everything works offline:</p>
+    <ul>
+      <li>Plan, edit, and view your schedule</li>
+      <li>Take and view photos</li>
+      <li>Log ducks</li>
+      <li>Edit notes, checklist, documents</li>
+    </ul>
+    <p>iCloud sync queues changes locally and uploads them whenever the device is back online. There's no spinner blocking your work and no "offline mode" to toggle — it just keeps going.</p>
+  </section>
+
+  <section id="privacy-data">
+    <h2>Privacy &amp; Data</h2>
+    <ul>
+      <li><strong>No accounts.</strong> CruiseFlow doesn't have a sign-up flow, password, or user database.</li>
+      <li><strong>No tracking.</strong> No analytics SDKs, no advertising IDs, no third-party trackers.</li>
+      <li><strong>No ads.</strong> Ever.</li>
+      <li><strong>Your data stays on your device</strong> unless you explicitly export it, share it, or sync it through your own iCloud.</li>
+      <li><strong>Email parsing happens on-device.</strong> Pasted booking emails never leave the phone.</li>
+      <li><strong>The AI Concierge is opt-in</strong> and uses your own Google Gemini key when enabled.</li>
+    </ul>
+    <p>For the full privacy policy, see <a href="privacy.html">Privacy Policy</a>.</p>
+  </section>
+
+  <section id="troubleshooting">
+    <h2>Troubleshooting</h2>
+
+    <h3 class="subhead">"Can't import this email" warning</h3>
+    <p>The email format isn't one CruiseFlow recognizes yet. Tap <strong>Set up cruise manually</strong>, then send the email subject line to <a href="mailto:cruiseflow.app@gmail.com">support</a> so we can add a parser.</p>
+
+    <h3 class="subhead">Reminders not firing</h3>
+    <ul>
+      <li>Check <span class="path">iOS Settings → Notifications → CruiseFlow</span> and make sure notifications are allowed</li>
+      <li>Verify <strong>Time Sensitive</strong> is on if you want full-screen alerts</li>
+      <li>Make sure the device's clock is accurate (Settings → General → Date &amp; Time)</li>
+    </ul>
+
+    <h3 class="subhead">Photos taking up too much space</h3>
+    <p>CruiseFlow compresses photos to ~1200px and ~70% JPEG quality on capture. Open the Memories tab, sort by photo count per event, and delete events or individual photos you no longer need. Photos in deleted events are removed from disk immediately.</p>
+
+    <h3 class="subhead">Lost data after a restore</h3>
+    <p>Restore overwrites the device's current data. If you lost something, look for a more recent backup file in Files or iCloud Drive — CruiseFlow doesn't auto-delete old backups.</p>
+
+    <h3 class="subhead">App opens to onboarding even though you have cruises</h3>
+    <p>This usually means the app couldn't read its database (rare — typically after a failed iOS migration). Force-quit and relaunch. If onboarding still appears, tap <strong>Restore backup</strong> on the welcome screen and pick your latest export.</p>
+
+    <h3 class="subhead">Date/time pickers look weird on iOS</h3>
+    <p>Make sure you're on the latest version (More → bottom of the page shows the version and build). Earlier versions had layout issues with side-by-side date pickers on smaller iPhones — these are fixed in current builds.</p>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <dl class="faq">
+      <dt>Does CruiseFlow work offline?</dt>
+      <dd>Yes! All your data is stored on your device. You can view your schedule, add photos, and write journal entries without an internet connection — perfect for days at sea.</dd>
+
+      <dt>Is CruiseFlow free?</dt>
+      <dd>Yes — the app is free with no ads and no in-app purchases. You bring your own free Google Gemini API key if you want the optional AI Concierge.</dd>
+
+      <dt>How do I back up my data?</dt>
+      <dd>Go to Settings and tap "Export Backup." This saves all your cruises, events, family members, and photos as a file you can restore later from the same screen.</dd>
+
+      <dt>Can I plan multiple cruises?</dt>
+      <dd>Absolutely. CruiseFlow supports multiple cruises. Switch between them from the home screen or manage them in Settings.</dd>
+
+      <dt>What is the Demo Cruise?</dt>
+      <dd>The demo cruise is a pre-populated sample cruise that lets you explore all of CruiseFlow's features before adding your own trip. You can delete it at any time from Settings.</dd>
+
+      <dt>How do I add family members?</dt>
+      <dd>Go to Settings and tap "Family Members." Add each person with a name, emoji, and color. You can then tag family members on events to see who's doing what.</dd>
+
+      <dt>What is Duck Hunt?</dt>
+      <dd>Hiding and finding rubber ducks is a beloved cruise tradition! The Duck Hunt feature lets you log every duck your family finds, including where you found it and the tag message left by the previous cruiser.</dd>
+
+      <dt>How do I delete my data?</dt>
+      <dd>You can delete individual cruises from Settings, or use "Reset All Data" to start fresh. All data is stored locally on your device and is permanently removed when deleted.</dd>
+
+      <dt>Can I share data between my iPhone and iPad?</dt>
+      <dd>Yes! CruiseFlow uses iCloud sync groups to keep multiple devices in sync. See the <a href="#sync-groups">iCloud Sync Setup</a> section for step-by-step instructions.</dd>
+
+      <dt>Can my family share the same cruise?</dt>
+      <dd>Yes — anyone signed into the same iCloud account (such as Family Sharing members who share an Apple ID for the app) can join the same sync group and see all cruise data. Each device must have CruiseFlow installed and iCloud enabled. For travel partners on a different Apple ID, use <a href="#airdrop">AirDrop sync files</a> instead.</dd>
+
+      <dt>Does it work on Android?</dt>
+      <dd>Not yet. CruiseFlow currently ships as a Progressive Web App in any modern browser and as a native iOS app. An Android build is on the roadmap.</dd>
+
+      <dt>What ships are supported?</dt>
+      <dd>The venue catalog covers most current ships across Norwegian, Royal Caribbean, Carnival, Disney, Celebrity, Princess, MSC, Virgin Voyages, and others. Even on a ship not in the catalog, you can type any venue name by hand.</dd>
+
+      <dt>What if I cruise with someone on a different iPhone account?</dt>
+      <dd>Use AirDrop sync files — see <a href="#airdrop">AirDrop Sync Files</a>.</dd>
+
+      <dt>Where does my data live?</dt>
+      <dd>On your device. iCloud sync stores a copy in your private iCloud Drive container (visible only to you and CruiseFlow). Backup files live wherever you save them.</dd>
+
+      <dt>I deleted a cruise by accident — can I recover it?</dt>
+      <dd>If you have a recent backup file or iCloud sync turned on, yes. Without either, no — deletes are immediate and permanent.</dd>
+
+      <dt>Does the AI Concierge see my data?</dt>
+      <dd>Only when you ask it a question. CruiseFlow sends the relevant slice of your itinerary along with your prompt to Google's Gemini API. The transcript isn't stored on any server we control.</dd>
+
+      <dt>Can I print or PDF my itinerary?</dt>
+      <dd>Yes — open the cruise on the home screen, tap the share icon, and pick "Save as PDF" or print. The recap player also exports as a video.</dd>
+
+      <dt>How do I change the day name when the ship reroutes?</dt>
+      <dd>On the Schedule tab, tap the "Day N · Port" label under the date and edit it inline. See <a href="#day-names">Day Names &amp; Port Labels</a>.</dd>
+
+      <dt>Will my checklist items sync between phones?</dt>
+      <dd>Yes, if iCloud sync is on. The checklist is part of the cruise and syncs along with everything else.</dd>
+    </dl>
+  </section>
+
+  <section id="requirements">
     <h2>Requirements</h2>
     <ul>
       <li>iOS 17.0 or later</li>
@@ -283,7 +903,7 @@
 
 <footer>
   <p><a href="privacy.html">Privacy Policy</a></p>
-  <p style="margin-top: 0.5rem;">&copy; 2025 CruiseFlow. All rights reserved.</p>
+  <p style="margin-top: 0.5rem;">&copy; 2026 CruiseFlow. All rights reserved.</p>
 </footer>
 
 </body>
